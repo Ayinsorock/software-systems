@@ -1,4 +1,4 @@
-package src.week1;
+package ss.week1;
 
 // Three way lamp as described in exercises 1.2, 2.4, 2.14
 public class ThreeWayLamp {
