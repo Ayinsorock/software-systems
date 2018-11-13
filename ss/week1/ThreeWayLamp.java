@@ -34,4 +34,4 @@ public class ThreeWayLamp {
     public void  switchSetting () {
         setting = (setting + 1) % SETTINGS.length;
     }
-}
+}
