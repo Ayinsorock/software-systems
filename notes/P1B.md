@@ -23,7 +23,7 @@ public class Guest {}
 #### Association types
 - `1` Exactly one
 - `0..1` Zero or one
-- `1..*` More than zero
+- `0..*` More than zero
 - `1..*` More than one
 
 #### Attributes
