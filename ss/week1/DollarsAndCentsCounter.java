@@ -12,8 +12,8 @@ public class DollarsAndCentsCounter {
      *            cents >= 0
      */
     public DollarsAndCentsCounter (int dollars, int cents) {
-        assert dollars >= 0;
-        assert cents >= 0;
+        assert dollars >= 0 : "precondition: dollars (" + dollars + ") >= 0";
+        assert cents >= 0 : "precondition: cents (" + cents + ") >= 0";
 
         this.dollars = dollars;
         this.cents = cents;
