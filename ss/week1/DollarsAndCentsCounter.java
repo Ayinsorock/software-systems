@@ -4,9 +4,19 @@ public class DollarsAndCentsCounter {
     private int dollars;
     private int cents;
 
-    public DollarsAndCentsCounter () {
-        dollars = 0;
-        cents = 0;
+    /**
+     * @param dollars initial amount of dollars
+     * @param cents initial amount of cents
+     *
+     * @require dollars >= 0
+     *            cents >= 0
+     */
+    public DollarsAndCentsCounter (int dollars, int cents) {
+        assert dollars >= 0;
+        assert cents >= 0;
+
+        this.dollars = dollars;
+        this.cents = cents;
     }
 
     public void reset () {

@@ -21,7 +21,7 @@ public class DollarsAndCentsCounterTest {
      */
     @Before
     public void setUp() {
-        counter = new DollarsAndCentsCounter();
+        counter = new DollarsAndCentsCounter(0, 0);
         counter.reset();
     }
 

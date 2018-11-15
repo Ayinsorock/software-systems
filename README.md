@@ -7,4 +7,4 @@ be somewhat cluttered.
 
 ## Notes
 Notes can be found under `/notes`. The file name indicates the module, week and lecture. So `P1A` holds the first
-lecture of the first week of the programming module. 
+lecture of the first week of the programming module.
