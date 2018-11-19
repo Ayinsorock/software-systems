@@ -1,4 +1,6 @@
-package ss.week2.hotel;
+package ss.week2.test;
+
+import ss.week2.hotel.Password;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -27,10 +29,10 @@ public class PasswordTest {
 	 */
 	@Test
 	public void testAcceptable() {
-		assertFalse(pass.ACCEPTABLE("no"));
-		assertFalse(pass.ACCEPTABLE("no nono"));
-		assertFalse(pass.ACCEPTABLE("no no"));
-		assertTrue(pass.ACCEPTABLE("yesyesyes"));
+		assertFalse(Password.ACCEPTABLE("no"));
+		assertFalse(Password.ACCEPTABLE("no nono"));
+		assertFalse(Password.ACCEPTABLE("no no"));
+		assertTrue(Password.ACCEPTABLE("yesyesyes"));
 	}
 
 	/**
