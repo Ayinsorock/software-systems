@@ -6,7 +6,7 @@
 - `\old(E)`: Value of expression `E` before the method
 - `C1 ==> C2`: Condition 1 implies condition 2
 - `C1 ? E1 : E2`: If condition 1 holds expression 1 holds. Else expression 2 holds.
-- `\forall`, `\exists` universal and existential quantification
+- `\forall`, `\exists`: universal and existential quantification
 
 ### Class invariants
 Invariants belong to classes.
