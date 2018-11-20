@@ -1,4 +1,4 @@
-# P1B
+# P1B - Class diagrams
 
 ### Class models
 *first* step: class diagram

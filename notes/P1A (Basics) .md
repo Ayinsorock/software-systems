@@ -1,4 +1,4 @@
-# P1A
+# P1A - Basics
 
 #### Syntax
 *primitives*: `int`, `long`, `float`, `double`, `char`, `boolean`

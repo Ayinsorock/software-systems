@@ -1,6 +1,4 @@
-# P2A
-
-## JML
+# P2A - JML
 
 ### Syntax
 
