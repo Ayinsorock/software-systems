@@ -64,7 +64,7 @@ public class Rectangle {
   }
 
   /**
-   * @ensures \result == 2 * (this.length + this.width)
+   * @ensures \result == 2 * (length() + width())
    */
   public int perimiter() {
     assert this.width > 0;

@@ -20,7 +20,10 @@ public class ThreeWayLamp {
 	}
 
 	/**
-	 * @ensure this.setting = (this.setting + 1) % this.SETTINGS.length
+	 * @ensure \old(currentSetting() == LampSetting.OFF ==> currentSetting() == LampSetting.LOW;
+	 * 		   \old(currentSetting() == LampSetting.LOW ==> currentSetting() == LampSetting.MEDIUM;
+ 	 *         \old(currentSetting() == LampSetting.MEDIUM ==> currentSetting() == LampSetting.HIGH;
+	 *         \old(currentSetting() == LampSetting.HIGH ==> currentSetting() == LampSetting.OFF;
 	 */
 	public void  switchSetting () {
 		switch (this.setting) {
