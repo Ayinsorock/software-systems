@@ -88,7 +88,6 @@ public class Hotel {
 	}
 
 	/**
-	 *
 	 * @param guest The name of the guest we are looking for
 	 * @return The Room the guest is checked into. Null if the guest can not be found.
 	 */
