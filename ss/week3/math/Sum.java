@@ -10,12 +10,7 @@ public class Sum implements Integrable {
 	}
 
 	public static void main (String[] args) {
-		Constant myFunc1 = new Constant(2.0);
-		Identity myFunc2 = new Identity();
-
-		Sum mySum = new Sum(myFunc1, myFunc2);
-
-		System.out.println(mySum.toString());
+		Print.print(new Sum(new Constant(2.0), new Identity()));
 	}
 
 	@Override
@@ -35,6 +30,6 @@ public class Sum implements Integrable {
 
 	@Override
 	public String toString() {
-		return this.func1.toString() + "+" + this.func2.toString();
+		return this.func1.toString() + " + " + this.func2.toString();
 	}
 }

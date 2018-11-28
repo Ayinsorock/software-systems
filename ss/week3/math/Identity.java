@@ -2,9 +2,7 @@ package ss.week3.math;
 
 public class Identity implements Integrable {
 	public static void main (String[] args) {
-		Identity myFunction = new Identity();
-
-		System.out.println(myFunction.toString());
+		Print.print(new Identity());
 	}
 
 	@Override

@@ -1,8 +1,8 @@
 package ss.week3.math;
 
 public class Product implements Integrable {
-	private Function func1;
-	private Function func2;
+	protected Function func1;
+	protected Function func2;
 
 	public Product (Function func1, Function func2) {
 		this.func1 = func1;
@@ -10,11 +10,7 @@ public class Product implements Integrable {
 	}
 
 	public static void main (String[] args) {
-		Function func1 = new Constant(9);
-		Function func2 = new Identity();
-		Function myProduct = new Product(func1, func2);
-
-		System.out.println(myProduct.toString());
+		Print.print(new Product(new Constant(2.0), new Identity()));
 	}
 
 	@Override
@@ -37,6 +33,6 @@ public class Product implements Integrable {
 
 	@Override
 	public String toString() {
-		return this.func1.toString() + " * " + this.func2.derivative().toString() + " + " + this.func1.derivative().toString() + " * " + this.func2.toString();
+		return this.func1.toString() + " * " + this.func2.toString();
 	}
 }

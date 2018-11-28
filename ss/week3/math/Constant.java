@@ -4,10 +4,7 @@ public class Constant implements Integrable {
 	private double c;
 
 	public static void main (String[] args) {
-		Constant myFunction = new Constant(2.0);
-
-		System.out.println(myFunction.toString());
-		System.out.println("f' = " + myFunction.derivative().toString());
+		Print.print(new Constant(2.0));
 	}
 
 	public Constant (double c) {

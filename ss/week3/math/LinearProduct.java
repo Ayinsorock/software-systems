@@ -1,26 +1,12 @@
 package ss.week3.math;
 
-public class LinearProduct implements Function {
-	private double n;
-	private Function func;
-
-	public LinearProduct(double n, Function func) {
-		this.n = n;
-		this.func = func;
+public class LinearProduct extends Product {
+	public LinearProduct(Function func1, Function func2) {
+		super(func1, func2);
 	}
 
 	@Override
-	public double apply(double x) {
-		return n * func.apply(x);
-	}
-
-	@Override
-	public Function derivative() {
-		return new LinearProduct(this.n, this.func.derivative());
-	}
-
-	@Override
-	public String toString() {
-		return super.toString();
+	public Integrable derivative() {
+		return new LinearProduct(this.func1, this.func2.derivative());
 	}
 }

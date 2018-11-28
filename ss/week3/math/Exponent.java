@@ -8,9 +8,7 @@ public class Exponent implements Function {
 	}
 
 	public static void main (String[] args) {
-		Function myExponent = new Exponent(8);
-
-		System.out.println(myExponent.toString());
+		Print.print(new Exponent(3));
 	}
 
 	@Override
@@ -20,7 +18,7 @@ public class Exponent implements Function {
 
 	@Override
 	public Function derivative() {
-		return new LinearProduct(power, new Exponent(power - 1));
+		return new LinearProduct(new Constant(power), new Exponent(power - 1));
 	}
 
 	@Override
