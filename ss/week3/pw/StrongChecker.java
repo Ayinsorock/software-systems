@@ -1,6 +1,6 @@
 package ss.week3.pw;
 
-public class StrongChecker implements Checker {
+public class StrongChecker extends BasicChecker {
 	public static void main (String[] args) {
 		StrongChecker myChecker = new StrongChecker();
 
@@ -12,7 +12,7 @@ public class StrongChecker implements Checker {
 		char last = phrase.charAt(phrase.length() - 1);
 		char first = phrase.charAt(0);
 
-		return !Character.isDigit(first) && Character.isDigit(last) && phrase.length() > 6;
+		return !Character.isDigit(first) && Character.isDigit(last) && super.acceptable(phrase);
 	}
 
 	@Override

@@ -31,5 +31,7 @@ public class LinearProductTest {
     public void testDerivative() {
         assertTrue(linearProduct.derivative() instanceof LinearProduct);
         assertEquals(0.0, linearProduct.derivative().apply(0), DELTA);
+
+
     }
 }

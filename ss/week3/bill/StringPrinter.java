@@ -1,7 +1,7 @@
 package ss.week3.bill;
 
 public class StringPrinter implements Printer {
-	private String string;
+	private String string = "";
 
 	@Override
 	public void printLine(String text, double price) {
