@@ -1,8 +1,12 @@
 package ss.week3.math;
 
 public class LinearProduct extends Product {
-	public LinearProduct(Function func1, Function func2) {
+	Constant func1;
+
+	public LinearProduct(Constant func1, Function func2) {
 		super(func1, func2);
+
+		this.func1 = func1;
 	}
 
 	@Override
