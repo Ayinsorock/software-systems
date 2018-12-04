@@ -7,12 +7,12 @@ package ss.week2.hotel;
  * Safe class implementing a safe which can be opened and closed with a password
  */
 public class Safe {
-	private boolean active;
-	private boolean open;
-	private Password password;
+	protected boolean active;
+	protected boolean open;
+	protected Password password;
 
 	public static void main (String[] args) {
-		Safe safe  = new Safe("123456");
+		Safe safe  = new Safe();
 	}
 
 	/**
@@ -22,11 +22,8 @@ public class Safe {
 	 *          !this.active
 	 *          !this.open
 	 */
-	public Safe (String password) {
-		assert Password.ACCEPTABLE(password);
-
+	public Safe () {
 		this.password = new Password();
-		this.password.setWord(Password.INITIAL, password);
 		this.active = false;
 		this.open = false;
 	}

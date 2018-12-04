@@ -8,7 +8,7 @@ public class Room {
 	// ------------------ Instance variables ----------------
 	private int number;
 	private Guest guest;
-	private Safe safe;
+	protected Safe safe;
 
 	// ------------------ Constructor ------------------------
 	public Room (int number, Safe safe) {
@@ -21,7 +21,7 @@ public class Room {
 	 * @param number number of the new <code>Room</code>
 	 */
 	public Room(int number) {
-		this(number, new Safe("123456"));
+		this(number, new Safe());
 	}
 
 	// ------------------ Queries --------------------------

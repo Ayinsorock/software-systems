@@ -25,9 +25,7 @@ public class BillTest {
 
 	@Before
 	public void setUp() {
-		StringPrinter myPrinter = new StringPrinter();
-
-		this.bill = new Bill(myPrinter);
+		this.bill = new Bill(new StringPrinter());
 	}
 
 	@Test

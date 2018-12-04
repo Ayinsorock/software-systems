@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bill {
-	interface Item {
+	public interface Item {
 		public double amount();
 	}
 
