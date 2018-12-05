@@ -1,6 +1,7 @@
 package ss.week4;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class MergeSort {
         // split the array into singletons
     	List<List<E>> lists = new ArrayList<>();
     	for(E element:list) {
-            lists.add(Collections.singletonList(element));
+            lists.add(new ArrayList<>(Collections.singletonList(element)));
         }
 
         // perform the merge
@@ -61,18 +62,10 @@ public class MergeSort {
             if(firstList.get(0).compareTo(secondList.get(0)) < 0) {
                 mergedList.add(firstList.get(0));
                 // TODO: SingletonLists are immutable therefor the extra check is needed. Preferably this would be solved in another way..
-                if (firstList.size() == 1) {
-                    firstList = new ArrayList<>();
-                } else {
-                    firstList.remove(0);
-                }
+                firstList.remove(0);
             } else {
                 mergedList.add(secondList.get(0));
-                if(secondList.size() == 1) {
-                    secondList = new ArrayList<>();
-                } else {
-                    secondList.remove(0);
-                }
+                secondList.remove(0);
             }
         }
 
