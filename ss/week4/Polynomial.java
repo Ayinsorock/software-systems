@@ -7,7 +7,6 @@ import ss.week3.math.Product;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 
 public class Polynomial implements ss.week3.math.Integrable {
