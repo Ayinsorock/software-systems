@@ -66,6 +66,7 @@ public class MergeSort {
 
         // when one of the lists is empty the other can fully appended
         // instead of checking which we just add both as one is empty anyways..
+        // 
         mergedList.addAll(firstList);
         mergedList.addAll(secondList);
 
