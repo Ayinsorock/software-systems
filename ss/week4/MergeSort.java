@@ -7,6 +7,10 @@ import java.util.List;
 public class MergeSort {
     public static <E extends Comparable<E>>
            void mergesort(List<E> list) {
+        if(list.size() < 2) {
+            return;
+        }
+
         // split the array into singletons
     	List<List<E>> lists = new ArrayList<>();
     	for(E element:list) {
@@ -14,18 +18,16 @@ public class MergeSort {
         }
 
         // perform the merge
-    	while (lists.size() > 1) {
-    	    lists = MergeSort.doMerge(lists);
-        }
+        List<E> sortedList = MergeSort.doMerge(lists);
 
         // overwrite the original array, not sure if this is the only/best way to do this
         for (int i = 0; i < list.size(); i++) {
-            list.set(i, lists.get(0).get(i));
+            list.set(i, sortedList.get(i));
         }
     }
 
     private static <E extends Comparable<E>>
-            List<List<E>> doMerge(List<List<E>> lists) {
+            List<E> doMerge(List<List<E>> lists) {
         List<List<E>> nextLists = new ArrayList<>();
 
         for (int i = 0; i < lists.size(); i += 2) {
@@ -48,7 +50,7 @@ public class MergeSort {
             nextLists.add(doSingleMerge(firstList, secondList));
         }
 
-        return nextLists;
+        return nextLists.size() > 1 ? doMerge(nextLists) : nextLists.get(0);
     }
 
     private static <E extends Comparable<E>>

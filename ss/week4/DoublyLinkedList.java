@@ -34,7 +34,7 @@ public class DoublyLinkedList<Element> {
     //@ requires 0 <= index && index < this.size;
     //@ ensures this.size == \old(size) - 1;
     public void remove(int index) {
-        if (this.size == 1) {
+        if (this.size == 0) {
             // self destruct?
             return;
         }
@@ -52,6 +52,34 @@ public class DoublyLinkedList<Element> {
     /*@ pure */ public Element get(int index) {
         Node p = getNode(index);
         return p.element;
+    }
+
+    public Node findBefore (Element element) {
+        int pos = -1;
+        Node curr = this.head;
+
+        while (pos < this.size) {
+            if(curr.element.equals(element)) {
+                return curr.previous.equals(this.head) ? null : curr.previous;
+            }
+        }
+
+        return null;
+    }
+
+    public void remove (Element element) {
+        Node prevNode = findBefore(element);
+        if (prevNode == null) {
+            return;
+        }
+
+        Node targetNode = prevNode.next;
+        Node nextNode = targetNode.next;
+
+        prevNode.next = nextNode;
+        nextNode.previous = prevNode;
+
+        size--;
     }
 
     /**
