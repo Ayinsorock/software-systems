@@ -59,14 +59,9 @@ public class MergeSort {
         List<E> mergedList = new ArrayList<>();
 
         while(firstList.size() > 0 && secondList.size() > 0) {
-            if(firstList.get(0).compareTo(secondList.get(0)) < 0) {
-                mergedList.add(firstList.get(0));
-                // TODO: SingletonLists are immutable therefor the extra check is needed. Preferably this would be solved in another way..
-                firstList.remove(0);
-            } else {
-                mergedList.add(secondList.get(0));
-                secondList.remove(0);
-            }
+            List<E> currentList = firstList.get(0).compareTo(secondList.get(0)) < 0 ? firstList : secondList;
+            mergedList.add(currentList.get(0));
+            currentList.remove(0);
         }
 
         // when one of the lists is empty the other can fully appended
