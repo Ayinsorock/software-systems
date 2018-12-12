@@ -7,28 +7,51 @@ import java.util.Set;
 
 public class MapUtil {
     public static <K, V> boolean isOneOnOne(Map<K, V> map) {
-        // TODO: implement, see exercise P-5.1
-        return false;
+        return map.entrySet().size() == new HashSet<>(map.values()).size();
     }
     public static <K, V> 
            boolean isSurjectiveOnRange(Map<K, V> map, Set<V> range) {
-        // TODO: implement, see exercise P-5.2
-        return false;
+        return new HashSet<>(map.values()).size() == range.size();
     }
     public static <K, V> Map<V, Set<K>> inverse(Map<K, V> map) {
-        // TODO: implement, see exercise P-5.3
-        return null;
+        Map<V, Set<K>> inverseMap = new HashMap<>();
+
+        map.keySet().forEach(key -> {
+            V value = map.get(key);
+            Set<K> keys = inverseMap.containsKey(value) ? inverseMap.get(value) : new HashSet<>();
+            keys.add(key);
+
+            inverseMap.put(value, keys);
+        });
+
+        return inverseMap;
 	}
+
+	// @Requires isOneOnOne(map)
 	public static <K, V> Map<V, K> inverseBijection(Map<K, V> map) {
-        // TODO: implement, see exercise P-5.3
-        return null;
+        Map<V, K> inverseMap = new HashMap<>();
+
+        map.keySet().forEach(key -> {
+            inverseMap.put(map.get(key), key);
+        });
+
+        return inverseMap;
 	}
 	public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
-        // TODO: implement, see exercise P-5.4
-        return false;
+        Set<V> allKeys = new HashSet(g.keySet());
+        allKeys.addAll(f.values());
+
+        return allKeys.size() == g.keySet().size();
 	}
+
+	// @Requires compatible(f, g)
 	public static <K, V, W> Map<K, W> compose(Map<K, V> f, Map<V, W> g) {
-        // TODO: implement, see exercise P-5.5
-        return null;
+        Map<K, W> composedMap = new HashMap<>();
+
+        f.keySet().forEach(key -> {
+            composedMap.put(key, g.get(f.get(key)));
+        });
+
+        return composedMap;
 	}
 }

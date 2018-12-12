@@ -11,7 +11,7 @@ public class SafeTest {
 
 	@Before
 	public void setUp () {
-		this.safe = new Safe(PASSWORD);
+		this.safe = new Safe();
 	}
 
 	@Test
