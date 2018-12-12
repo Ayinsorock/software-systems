@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import ss.week4.LinkedList;
 
+import javax.lang.model.element.Element;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -16,6 +18,7 @@ public class LinkedListTest {
     @Before
     public void setUp() {
         list = new LinkedList<>();
+
 
         object1 = new Object();
         object2 = new Object();

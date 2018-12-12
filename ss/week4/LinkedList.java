@@ -31,6 +31,7 @@ public class LinkedList<Element> {
         	if (!this.first.element.equals(element)) {
         		return;
 			}
+
 			this.first = this.first.next;
         	this.size--;
         	return;
