@@ -22,9 +22,8 @@ public class MergeSort {
         List<E> sortedList = MergeSort.doMerge(lists);
 
         // overwrite the original array, not sure if this is the only/best way to do this
-        for (int i = 0; i < list.size(); i++) {
-            list.set(i, sortedList.get(i));
-        }
+        list.clear();
+        list.addAll(sortedList);
     }
 
     private static <E extends Comparable<E>>
