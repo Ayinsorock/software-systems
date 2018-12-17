@@ -1,2 +1,4 @@
 .idea/*
 build/*
+ss/.gradle*
+ss/out
