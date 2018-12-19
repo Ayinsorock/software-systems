@@ -98,6 +98,8 @@ public class DictionaryAttack {
 		while(!hash.equals(this.getPasswordHash(Integer.toString(i,36)))){
 			i++;
 		}
+
+		System.out.println(Integer.toString(i, 36));
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -107,8 +109,8 @@ public class DictionaryAttack {
 //		da.addToHashDictionary("PasswordSet.txt");
 
 		long mili = System.currentTimeMillis();
-		da.doBruteForceAttack(da.getPasswordHash("hondje"));
-		System.out.println(-1 * (mili - System.currentTimeMillis()));
+		da.doBruteForceAttack(da.getPasswordHash("hond"));
+		System.out.println("Computed in " + -1 * (mili - System.currentTimeMillis()) + "ms");
 	}
 
 }
