@@ -94,12 +94,17 @@ public class DictionaryAttack {
 	 * Bruteforce for numbers and lowercase letters
 	 */
 	public void doBruteForceAttack(String hash) {
-		int i = 0;
-		while(!hash.equals(this.getPasswordHash(Integer.toString(i,36)))){
+		long i = 0;
+		while(!hash.equals(this.getPasswordHash(Long.toString(i,36)))){
+			if (i == Long.MAX_VALUE) {
+				System.out.println("This is taking to long.. I'm out...");
+				return;
+			}
+
 			i++;
 		}
 
-		System.out.println(Integer.toString(i, 36));
+		System.out.println(Long.toString(i, 36));
 	}
 
 	public static void main(String[] args) throws Exception {
