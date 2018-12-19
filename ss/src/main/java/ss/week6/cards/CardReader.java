@@ -25,24 +25,32 @@ public class CardReader {
 	private static ObjectInputStream objectIn;
 	private static ObjectOutputStream objectOut;
 
-	private static Card read() throws EOFException {
+	private static Card read() throws EOFException, IOException, ClassNotFoundException {
 		if (reader != null) {
 			return Card.read(reader);
-		} else if (dataIn != null) {
-			return Card.read(dataIn);
-		} else {
+		}
+
+		if (dataIn != null) {
+            return Card.read(dataIn);
+        }
+
+		if(objectIn != null) {
 			return Card.read(objectIn);
 		}
+
+		return null;
 	}
 
 	private static void write(Card k) throws IOException {
 		if (writer != null) {
-			k.write(writer);
-		} else if (dataOut != null) {
-			k.write(dataOut);
-		} else {
-			k.write(objectOut);
-		}
+            k.write(writer);
+        }
+		if (dataOut != null) {
+            k.write(dataOut);
+        }
+
+		k.write(objectOut);
+
 	}
 
 	private static void close() {
@@ -123,6 +131,8 @@ public class CardReader {
 				doorgaan = false;
 			} catch (IOException exc) {
 				System.err.println(exc.getMessage());
+			} catch (ClassNotFoundException exc) {
+				doorgaan = false;
 			}
 		}
 		close();

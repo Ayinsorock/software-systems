@@ -1,9 +1,6 @@
 package ss.week6.voteMachine.gui;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Observable;
-import java.util.Scanner;
+import java.util.*;
 
 import ss.week6.voteMachine.PartyList;
 import ss.week6.voteMachine.VoteList;

@@ -3,6 +3,7 @@ package ss.week6.voteMachine;
 import java.util.List;
 import java.util.Map;
 import java.util.Observer;
+import java.util.Set;
 
 public interface VoteView extends Observer {
     public void start();

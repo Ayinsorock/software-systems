@@ -1,6 +1,9 @@
 package ss.week6.cards;
 
-public class Card
+import java.io.*;
+import java.util.Scanner;
+
+public class Card implements Serializable
 {
 
 	// ---- constants -----------------------------------
@@ -44,7 +47,7 @@ public class Card
 
 	/**
 	 * Translates a suit String into its character encoding.
-	 * @param  rank the String representation of a suit
+	 * @param  suit the String representation of a suit
 	 * @return the character encoding of suit
 	 * @return '?' if <code>isValidSuit(suit)</code> returns <code>false</code>
 	 */
@@ -299,5 +302,77 @@ public class Card
 	 */
 	public boolean isInRankBefore(Card card) {
 		return isRankFollowing(this.getRank(), card.getRank());
+	}
+
+
+
+	public void write (PrintWriter printWriter) {
+		printWriter.write(this.toString() + "\n");
+		printWriter.flush();
+	}
+
+	public void write (DataOutput out) {
+		try {
+			out.writeChar(this.getSuit());
+			out.writeChar(this.getRank());
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Card read(DataInput in) throws IOException {
+		char suit = in.readChar();
+		char rank = in.readChar();
+
+		if(isValidRank(rank) && isValidSuit(suit)) {
+			return new Card(suit, rank);
+		}
+
+		return null;
+	}
+
+	public static Card read(BufferedReader in) throws IOException {
+		try {
+			String line = in.readLine();
+			Scanner lineScanner = new Scanner(line);
+
+			String suit = lineScanner.hasNext() ? lineScanner.next() : "";
+			String rank = lineScanner.hasNext() ? lineScanner.next(): "";
+
+			if (isValidSuit(Card.suitString2Char(suit)) && isValidRank(Card.rankString2Char(rank))) {
+				return new Card(Card.suitString2Char(suit), Card.rankString2Char(rank));
+			}
+
+			return null;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public static Card read(ObjectInput in) throws IOException, ClassNotFoundException {
+		return (Card) in.readObject();
+	}
+
+	public void write (ObjectOutput out) throws IOException {
+		out.writeObject(this);
+	}
+
+	public static void main (String[] args) {
+		try {
+			PrintWriter printWriter = new PrintWriter("cardData.txt");
+			Card card = new Card(SUIT_CHARACTERS[0], RANK_CHARACTERS[0]);
+			Card cArd = new Card(SUIT_CHARACTERS[1], RANK_CHARACTERS[1]);
+			Card caRd = new Card(SUIT_CHARACTERS[2], RANK_CHARACTERS[2]);
+			Card carD = new Card(SUIT_CHARACTERS[3], RANK_CHARACTERS[3]);
+
+			card.write(printWriter);
+			cArd.write(printWriter);
+			caRd.write(printWriter);
+			carD.write(printWriter);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }
