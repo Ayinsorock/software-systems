@@ -9,10 +9,12 @@ public class MapUtil {
     public static <K, V> boolean isOneOnOne(Map<K, V> map) {
         return map.entrySet().size() == new HashSet<>(map.values()).size();
     }
+
     public static <K, V> 
            boolean isSurjectiveOnRange(Map<K, V> map, Set<V> range) {
         return new HashSet<>(map.values()).size() == range.size();
     }
+
     public static <K, V> Map<V, Set<K>> inverse(Map<K, V> map) {
         Map<V, Set<K>> inverseMap = new HashMap<>();
 
@@ -37,6 +39,7 @@ public class MapUtil {
 
         return inverseMap;
 	}
+
 	public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
         Set<V> allKeys = new HashSet<>(g.keySet());
         allKeys.addAll(f.values());

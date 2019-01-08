@@ -324,6 +324,8 @@ public class Card implements Serializable
 		char suit = in.readChar();
 		char rank = in.readChar();
 
+		System.out.println("Suit: " + suit + ". Rank: " + rank);
+
 		if(isValidRank(rank) && isValidSuit(suit)) {
 			return new Card(suit, rank);
 		}
