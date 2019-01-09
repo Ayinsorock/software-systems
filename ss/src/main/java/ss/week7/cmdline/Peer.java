@@ -64,7 +64,7 @@ public class Peer implements Runnable {
      */
     public void handleTerminalInput() {
         while (true) {
-            String message = readString("*: ");
+            String message = readString("");
 
             // no message received
             if (message == null) {

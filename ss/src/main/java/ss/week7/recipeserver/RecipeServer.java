@@ -24,7 +24,7 @@ public class RecipeServer extends Thread {
         	// ServerSocket ssock = new ServerSocket(port);
             while (true) {
                  Socket sock = ssock.accept();
-                 System.out.println("Client connected!");
+                 System.out.println("MultiClient connected!");
                  ClientHandler handler = new ClientHandler(sock);
                  handler.start();
             }

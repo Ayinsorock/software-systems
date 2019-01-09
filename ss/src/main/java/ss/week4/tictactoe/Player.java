@@ -62,7 +62,7 @@ public abstract class Player {
      */
     public abstract int determineMove(Board board);
 
-    // -- Commands ---------------------------------------------------
+    // -- Command ---------------------------------------------------
 
     /*@
        requires board != null & !board.isFull();

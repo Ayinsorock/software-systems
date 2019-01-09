@@ -30,7 +30,7 @@ public class HumanPlayer extends Player {
         super(name, mark);
     }
 
-    // -- Commands ---------------------------------------------------
+    // -- Command ---------------------------------------------------
 
     /*@
        requires board != null;

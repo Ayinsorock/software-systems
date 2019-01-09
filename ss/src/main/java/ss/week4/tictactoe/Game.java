@@ -49,7 +49,7 @@ public class Game {
         current = 0;
     }
 
-    // -- Commands ---------------------------------------------------
+    // -- Command ---------------------------------------------------
 
     /**
      * Starts the Tic Tac Toe game. <br>

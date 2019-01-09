@@ -44,7 +44,7 @@ public class Server {
             BufferedReader inputStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             BufferedWriter outputStream = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
 
-            System.out.println("Client connected");
+            System.out.println("MultiClient connected");
             outputStream.write("Hello client, nice to meet you \n");
             outputStream.flush();
 

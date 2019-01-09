@@ -71,7 +71,7 @@ public class VoteTUIView implements Observer, VoteView{
 
     public void printInstructions () {
         System.out.println(
-                "Commands: " +
+                "Command: " +
                 "\n VOTE [party]" +
                 "\n ADD PARTY [party]" +
                 "\n VOTES" +

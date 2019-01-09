@@ -36,7 +36,7 @@ public class Room {
     	return guest;
     }
 
-    // ------------------ Commands --------------------------
+    // ------------------ Command --------------------------
     /**
      * Assigns a <code>Guest</code> to this <code>Room</code>.
      * @param g the next guest renting this <code>Room</code>;
