@@ -27,7 +27,7 @@ public class RecipeClient {
             System.out.println(USAGE);
             System.exit(0);
         }
-        
+
         InetAddress addr = null;
         int port = 0;
         Socket sock = null;
@@ -49,8 +49,8 @@ public class RecipeClient {
             System.out.println("ERROR: port " + args[1] + " is not an integer");
             System.exit(0);
         }
-        
-        
+
+
         String command = "LIST";
 
 
@@ -61,16 +61,16 @@ public class RecipeClient {
             System.out.println("ERROR: could not create a socket on " + addr
                     + " and port " + port);
         }
-        
+
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     sock.getInputStream()));
             BufferedWriter out = new BufferedWriter(new OutputStreamWriter(
                     sock.getOutputStream()));
-            
+
             int rNum = -1;
             Scanner userIn = new Scanner(System.in);
-            
+
             out.write(command);
             out.newLine();
             out.flush();
@@ -115,6 +115,6 @@ public class RecipeClient {
         } catch (IOException e) {
             System.out.println("ERROR: unable to communicate to server");
             e.printStackTrace();
-        }   
+        }
     }
 }
