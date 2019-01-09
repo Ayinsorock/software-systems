@@ -2,6 +2,15 @@ package ss.week7.threads;
 
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * Just using the synchronized keyword will not prevent the methods from executing simultaneously as the lock provided
+ * is instance specific. As we are constructing two different instances of TestSyncConsole they don't share this lock.
+ * By creating a lock outside of the instance and providing this to TestSyncConsole the instances share this lock
+ * and the sum() methods won't interfere.
+ *
+ * Note: Intrinsic locks (as provided by the synchronized keyword) are reentrant locks.
+ */
+
 public class TestSyncConsole extends Thread {
     private ReentrantLock lock;
 
@@ -28,7 +37,7 @@ public class TestSyncConsole extends Thread {
         sum();
     }
 
-    private synchronized void sum () {
+    private void sum () {
         lock.lock();
         String threadName = getName();
 
