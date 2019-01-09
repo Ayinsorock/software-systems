@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Server {
@@ -13,7 +14,7 @@ public class Server {
     }
 
 
-    public static final int PORT = 8080;
+    public static final int PORT = 3000;
     private List<ClientHandler> clientHandlers = new ArrayList();
 
     public void start () {
@@ -29,7 +30,7 @@ public class Server {
                 handler.start();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             System.exit(0);
         }
     }
@@ -40,5 +41,18 @@ public class Server {
                 handler.handleMessageReceived(myHandler.username() + ": " + message);
             }
         });
+    }
+
+    public void broadcast (String message) {
+        clientHandlers.forEach(handler -> handler.handleMessageReceived(message));
+    }
+
+    public void removeHandler(ClientHandler handler) {
+        this.clientHandlers.remove(handler);
+        this.broadcast(handler.username() + " left the chat.");
+    }
+
+    public void log (String message) {
+        System.out.println("[" + new Date() + "] " + message);
     }
 }

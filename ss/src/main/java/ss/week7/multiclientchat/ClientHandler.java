@@ -2,7 +2,6 @@ package ss.week7.multiclientchat;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Date;
 
 public class ClientHandler extends Thread {
     private Server server;
@@ -25,24 +24,24 @@ public class ClientHandler extends Thread {
 
     public void run () {
         try {
-            System.out.println("MultiClient connected..");
+            server.log("Client detected...");
             // Request the client username
             this.outStream.write("Please provide a username... \n");
             this.outStream.flush();
 
             String inbound;
-            while ((inbound = inStream.readLine()) != null && this.username == null) {
-                this.username = inbound;
-                System.out.println("User " + username + " logged on...");
+            while ((inbound = inStream.readLine()) != null) {
+                if (this.username == null) {
+                    this.username = inbound;
+                    server.log("User " + username + " logged on...");
+                    server.broadcast(username + " joined the chat"); // null to broadcast to client itself as well
+                } else {
+                    server.log(this.username + ": " + inbound);
+                    server.broadcast(inbound, this);
+                }
             }
-
-            while ((inbound = inStream.readLine()) != null && !inbound.equals("exit")) {
-                System.out.println("[" + new Date() + "] " + this.username + ": " + inbound);
-                server.broadcast(inbound, this);
-            }
-
         } catch (IOException e) {
-
+            server.removeHandler(this);
         }
 
     }
@@ -52,7 +51,7 @@ public class ClientHandler extends Thread {
             this.outStream.write(message + "\n");
             this.outStream.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            server.removeHandler(this);
         }
     }
 

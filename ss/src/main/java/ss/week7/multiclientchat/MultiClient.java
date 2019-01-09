@@ -14,8 +14,8 @@ import java.net.UnknownHostException;
  */
 public class MultiClient {
     public static String name = "Client_";
-    public static String host = "127.0.0.1";
-    public static int port = 8080;
+    public static String host =  "127.0.0.1";
+    public static int port = 3000;
 
     /** Starts a MultiClient application. */
     public static void main(String[] args) {
@@ -29,6 +29,7 @@ public class MultiClient {
             System.out.println("ERROR: host " + args[1] + " unknown");
             System.exit(0);
         }
+
         // try to open a Socket to the server
         try {
             sock = new Socket(addr, port);
