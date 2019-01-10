@@ -36,15 +36,13 @@ public class Server {
     }
 
     public void broadcast (String message, ClientHandler myHandler) {
-        clientHandlers.forEach(handler -> {
-            if (myHandler != handler) {
-                handler.handleMessageReceived(myHandler.username() + ": " + message);
-            }
-        });
+        clientHandlers.forEach(handler ->
+                handler.handleMessageReceived("[" + new Date() + "]: " + myHandler.username() + ": " + message)
+        );
     }
 
     public void broadcast (String message) {
-        clientHandlers.forEach(handler -> handler.handleMessageReceived(message));
+        clientHandlers.forEach(handler -> handler.handleMessageReceived("[" + new Date() + "]: " + message));
     }
 
     public void removeHandler(ClientHandler handler) {
@@ -54,5 +52,22 @@ public class Server {
 
     public void log (String message) {
         System.out.println("[" + new Date() + "] " + message);
+    }
+
+    public String welcomeMessage() {
+        return " _   _       _   \n" +
+                "| | | |     (_)  \n" +
+                "| |_| | ___  _   \n" +
+                "|  _  |/ _ \\| |  \n" +
+                "| | | | (_) | |  \n" +
+                "\\_| |_/\\___/|_| \n";
+    }
+
+    public String userList() {
+        StringBuffer usersString = new StringBuffer();
+
+        this.clientHandlers.forEach(handler -> usersString.append(handler.username() + "\n"));
+
+        return usersString.toString();
     }
 }

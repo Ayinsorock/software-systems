@@ -1,3 +1,8 @@
+import ss.week7.challenge.chatbox.MessageUI;
+
+import javax.swing.*;
+import java.awt.event.ActionListener;
+
 public class ServerGUI extends JFrame implements ActionListener, MessageUI {
 	private JButton bConnect;
 	private JTextField tfPort;
